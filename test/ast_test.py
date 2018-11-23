@@ -28,30 +28,42 @@ def same_function_with_more_whitespace(param1, callback_fn):
     return callback_fn(tail)
 
 
+def different_function_same_args(param1, callback_fn):
+    tail = param1[0:1]
+    return callback_fn(tail)
+
+
 class VersionFunctionTest(unittest.TestCase):
 
     def test_should_ignore_comments_and_docstrings(self):
         hash1 = version_hash_for_function(some_strange_looking_function)
         hash2 = version_hash_for_function(same_strange_looking_function)
 
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', hash1)
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', hash2)
         self.assertEqual(hash1, hash2)
 
     def test_should_ignore_variable_names(self):
         original_hash = version_hash_for_function(some_strange_looking_function)
         different_variables_hash = version_hash_for_function(same_function_but_with_different_variable_names)
 
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', original_hash)
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', different_variables_hash)
         self.assertEqual(original_hash, different_variables_hash)
 
     def test_should_ignore_whitespaces(self):
         original_hash = version_hash_for_function(some_strange_looking_function)
         more_whitespace_hash = version_hash_for_function(same_function_with_more_whitespace)
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', original_hash)
-        self.assertEqual('1857c9e1f29ce1cd1db81e1f42453857', more_whitespace_hash)
-        self.assertEqual(original_hash, same_function_with_more_whitespace)
+
+        self.assertEqual(original_hash, more_whitespace_hash)
+
+    def test_should_be_deterministic(self):
+        hash1 = version_hash_for_function(some_strange_looking_function)
+        hash2 = version_hash_for_function(some_strange_looking_function)
+
+        self.assertEqual(hash1, hash2)
+
+    def test_should_differentiate_different_functions(self):
+        hash1 = version_hash_for_function(some_strange_looking_function)
+        hash2 = version_hash_for_function(different_function_same_args)
+
+        self.assertNotEqual(hash1, hash2)
 
 
 if __name__ == '__main__':
