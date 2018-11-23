@@ -1,5 +1,7 @@
 # Verfun
 
+[![Build Status](https://travis-ci.org/haakondr/verfun.svg?branch=master)](https://travis-ci.org/haakondr/verfun)
+
 Verfun is a util for generating a checksum for a python function ignoring whitespace, comments, variable names, etc.
 
 ## Great, why is this useful?
