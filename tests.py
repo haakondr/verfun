@@ -30,6 +30,8 @@ def same_function_but_with_different_variable_names(xxx, callback_yyy):
 
 def same_function_with_more_whitespace(param1, callback_fn):
     tail = param1[-1]
+
+
     return callback_fn(tail)
 
 
