@@ -2,11 +2,16 @@ import inspect
 import ast
 from types import FunctionType
 import hashlib
+import astunparse
+from pyminifier import minification
+
 
 def version_hash_for_function(fn: FunctionType):
-    # TODO: this is currently not working
-    function_as_str = inspect.getsource(fn)
-    abstract_syntax_tree = ast.parse(function_as_str)
-    ast_string = ast.dump(abstract_syntax_tree, annotate_fields=False)
+    abstract_syntax_tree = ast.parse(inspect.getsource(fn)).body[0]
+    abstract_syntax_tree.name = "replaced_functionname"
+    generated = astunparse.unparse(abstract_syntax_tree)
 
-    return hashlib.md5(ast_string.encode('utf-8')).hexdigest()
+    result = minification.remove_comments_and_docstrings(generated)
+    result = minification.remove_blank_lines(result)
+
+    return hashlib.md5(result.encode('utf-8')).hexdigest()
