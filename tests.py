@@ -1,6 +1,6 @@
 import unittest
 
-from src.verfun import version_hash_for_function
+from verfun import version_hash_for_function
 
 
 def some_strange_looking_function(param1, callback_fn):
