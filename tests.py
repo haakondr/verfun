@@ -48,6 +48,18 @@ class VersionFunctionTest(unittest.TestCase):
 
         self.assertEqual(hash1, hash2)
 
+    def test_should_always_return_same_hash(self):
+        self.assertEqual("c4cb4d2638d790016cbee29a6ed5af8c", version_hash_for_function(some_strange_looking_function))
+        self.assertEqual("c4cb4d2638d790016cbee29a6ed5af8c",
+                         version_hash_for_function(same_function_same_content_different_fn_name))
+
+        self.assertEqual("c4cb4d2638d790016cbee29a6ed5af8c",
+                         version_hash_for_function(same_function_with_more_whitespace))
+
+        # TODO: uncomment when issue #1 is fixed
+        # self.assertEqual("c4cb4d2638d790016cbee29a6ed5af8c",
+        #                  version_hash_for_function(same_function_but_with_different_variable_names))
+
     def test_should_ignore_comments_and_docstrings(self):
         hash1 = version_hash_for_function(some_strange_looking_function)
         hash2 = version_hash_for_function(same_strange_looking_function)
