@@ -14,8 +14,6 @@ setup(
     # The project's main homepage.
     url='https://github.com/haakondr/verfun',
 
-    author='Håkon Drolsum Røkenes',
-
     license='MIT',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
