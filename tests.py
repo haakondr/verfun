@@ -1,6 +1,6 @@
 import unittest
 
-from verfun import version_hash_for_function
+from verfun import version_hash_for_function, version_hash_for_function_list
 
 
 def some_strange_looking_function(param1, callback_fn):
@@ -90,6 +90,15 @@ class VersionFunctionTest(unittest.TestCase):
         different_variables_hash = version_hash_for_function(same_function_but_with_different_variable_names)
 
         self.assertEqual(original_hash, different_variables_hash)
+
+    def test_should_generate_checksum_of_function_list(self):
+        pass
+
+    def test_should_generate_same_checksum_for_function_list_with_one_item(self):
+        checksum_of_list = version_hash_for_function_list([some_strange_looking_function])
+        checksum_of_fn = version_hash_for_function(some_strange_looking_function)
+
+        self.assertEqual(checksum_of_fn, checksum_of_list)
 
 
 if __name__ == '__main__':
