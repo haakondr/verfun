@@ -15,6 +15,7 @@ setup(
     url='https://github.com/haakondr/verfun',
 
     author='Håkon Drolsum Røkenes',
+    author_email="drhaakondr@gmail.com",
 
     license='MIT',
 
@@ -28,10 +29,10 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
-        'Topic :: Code Tools :: checksums',
+        'Topic :: Software Development :: Version Control',
 
         # Pick your license as you wish (should match "license" above)
-        'License :: MIT',
+        'License :: OSI Approved :: MIT License',
 
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',

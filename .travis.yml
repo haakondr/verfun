@@ -1,11 +1,16 @@
 language: python
-
 python:
-  - "3.6"
+- '3.6'
 cache: pip
-
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - pycodestyle verfun.py
-  - python tests.py
+- pycodestyle verfun.py
+- python tests.py
+
+
+deploy:
+  provider: pypi
+  user: haakondr
+  password:
+    secure: pY5JyWgd6dD7sNLGIlc6bMOzBZBIbMFrQRrpSkxDcLGCBzf5JNb1JzaJuoruF5WQuGLll0TbklctGgdz7vUk2BKtOFlRkT8uWYtafFLjVY0b7Pxd6UROT57hI4tlmhIv1rajBGeF3ALd8cUtI84cs+LPkMlljbEJ8AXKMsLx7CLRbE88OakFe2CJXm4RX0141hb+oaLzqF5AJeF+usQ16SnTbnLKMOLg6woMLxjLhtHB507GtQ5G4bElvNHLhoKKrurQz2XLFgq3Bl3KeP6zMrGz64Yg+RBonfJU79an6vGqS7+BRF4DtYXFhsq0OyYA6r82OCzOhZ5AMSySBXNi8Up18yRMaLfFqzkolmO2DHVL5RqzzOleHePp+35sqH4fVtjJk8lij4gtLHFyc+y5SIomi7iAZQHVgkDnM1Z30r/YhTZag66Rfbd3H8+tPfLk5hHUHVzU7SpUYeBCs3IYP/7b2zeplHGEKSAWt+BoT2flNggUEkR5HaBcZRliKnu9FWzJH+6OglxT3WBQHA6z8f/OYo6SEUbkuoY6AeH2F2xigDcAhftd+preYEh9Q9bPSH1YZ0sbT4pTKYU3kkoVsDVEpxTky8J+kcnPF5ZFDOxtTmUqp8Fgcyl+cetaZPL5Hw93Xx6AO/guzAmDoPCk10ut59e94mZ6W7tAOYmKpfo=
