@@ -38,6 +38,9 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
 
-    install_requires=[],
+    install_requires=[
+        "pyminifier",
+        "astunparse",
+    ],
     test_suite='tests',
 )
