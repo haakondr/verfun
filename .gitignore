@@ -1,2 +1,8 @@
 venv
 .idea
+__pycache__
+dist
+verfun.egg-info
+.eggs
+.vscode
+.mypy_cache
