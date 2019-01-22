@@ -5,7 +5,7 @@ cache: pip
 install:
 - pip install -r requirements.txt
 script:
-- pycodestyle verfun.py
+- pycodestyle --config .pycodestyle verfun.py
 - python tests.py
 
 
